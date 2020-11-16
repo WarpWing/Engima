@@ -1,9 +1,11 @@
 [package]
 name = "mps"
 version = "0.1.0"
-authors = ["WarpWing <professornitro@gmail.com>"]
-edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+authors = ["Ty Chermsirivatana professornitro@gmail.com"]
+license = "MIT OR Apache-2.0"
+description = "A Rust Written TUI designed to help users navitage Canonical's Multipass VM System with ease."
+readme = "README.md"
+homepage = "https://github.com/WarpWing/MultipassSimplified"
+repository = "https://github.com/WarpWing/MultipassSimplified"
+keywords = ["cli", "multipass", "commandline"]
+categories = ["command-line-utilities"]
