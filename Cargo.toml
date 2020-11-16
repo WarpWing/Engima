@@ -9,3 +9,5 @@ homepage = "https://github.com/WarpWing/MultipassSimplified"
 repository = "https://github.com/WarpWing/MultipassSimplified"
 keywords = ["cli", "multipass", "commandline"]
 categories = ["command-line-utilities"]
+[dependencies]
+clap = "2.33.3"
