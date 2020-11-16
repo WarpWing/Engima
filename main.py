@@ -1,4 +1,5 @@
 import getpass
+import time
 import pretty_errors
 import os
 
@@ -14,4 +15,7 @@ def multipasscheck():
     else: 
         print(f"Please install Multipass before launching {app} ") 
 
-multipasscheck()
+os.system('clear')
+time.s
+multipasscheck()  
+
