@@ -1,9 +1,10 @@
+extern crate clap;
 use clap::App; 
 
 fn main() { 
     App::new("mps")
-       .version("1.0")
-       .about("Does great things!")
-       .author("Kevin K.")
+       .version("v1.0")
+       .about("A Rust Written TUI designed to help users navitage Canonical's Multipass VM System with ease.")
+       .author("Ty Chermsirivatana")
        .get_matches(); 
 }
