@@ -3,6 +3,9 @@ import PyInquirer
 import time
 import pretty_errors
 import os
+from __future__ import print_function, unicode_literals
+from PyInquirer import prompt
+from pprint import pprint
 
 app = 'MultipassSimplified'
 username = getpass.getuser()
@@ -21,6 +24,3 @@ multipasscheck()
 time.sleep(2)
 def console():
     
-
-
-
