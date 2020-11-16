@@ -1,4 +1,5 @@
 import getpass
+import PyInquirer
 import time
 import pretty_errors
 import os
@@ -16,6 +17,10 @@ def multipasscheck():
         print(f"Please install Multipass before launching {app} ") 
 
 os.system('clear')
-time.s
-multipasscheck()  
+multipasscheck()
+time.sleep(2)
+def console():
+    
+
+
 
