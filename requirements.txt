@@ -1,2 +1,4 @@
 pretty_errors
 PyInquirer
+pyfiglet
+Figlet
