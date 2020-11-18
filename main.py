@@ -21,13 +21,15 @@ def multipassCheck():
         print(f"Please install Multipass before launching {app} ") 
         exit()
 
-    
+def warpwing():
+    print("Function Test")
+    time.sleep(6)
 # GUI Logic 
 def mainConsole():
     # GUI Logic 
     menu = ConsoleMenu("MultipassSimplified", "A Python TUI Interface for the Multipass VM System by WarpWing")
     # Command Logic 
-    command_item1 = CommandItem("Create New MP Instance", warpwing)
+    command_item1 = FunctionItem("Create New MP Instance", warpwing)
     command_item2 = CommandItem("Shell into MP Instance", input , ["Enter an input"])
     command_item3 = CommandItem("Start MP Instance", input , ["Enter an input"])
     command_item4 = CommandItem("Stop MP Instance", input , ["Enter an input"])

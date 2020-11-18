@@ -7,7 +7,4 @@ import pretty_errors
 import os 
 # MPS Responsive Function Array
 
-# WarpWing Test Function
-def warpwing():
-    print("Function Test")
-    time.sleep(6)
+# WarpWing Test Function)
