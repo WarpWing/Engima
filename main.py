@@ -9,7 +9,7 @@ app = 'MultipassSimplified'
 username = getpass.getuser()
 m = f'/home/{username}/snap/multipass'  # macOS
 w = f"c:/Program Files/multipass"       # Windows
-isFile = os.path.isdir(m) 
+isFile = os.path.isdir(w) 
 
 #Multipass Install Check
 def multipassCheck():
@@ -26,7 +26,10 @@ options = {
 }
 def mainConsole():
     i = input("Enter Your Input: ")
-    print(options[i])
+    try:
+        print(options[i])
+    except KeyError:
+        print("Invalid Operation!")
 
      
         
