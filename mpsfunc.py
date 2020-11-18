@@ -8,3 +8,6 @@ import os
 # MPS Responsive Function Array
 
 # WarpWing Test Function)
+def warpwing():
+    print("Function Test")
+    time.sleep(6)
