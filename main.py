@@ -7,43 +7,31 @@ import os
 # File Wide Variables
 app = 'MultipassSimplified'
 username = getpass.getuser()
-x = f'/home/{username}/snap/multipass'
-isFile = os.path.isdir(x) 
+m = f'/home/{username}/snap/multipass'  # macOS
+w = f"c:/Program Files/multipass"       # Windows
+isFile = os.path.isdir(m) 
 
 #Multipass Install Check
-def multipasscheck():
+def multipassCheck():
     if isFile: 
         pass
     else: 
         print(f"Please install Multipass before launching {app} ") 
         exit()
-# MPS Console Logic 
-def mainconsole(): 
-    g = input('Enter your input: ')
-    f = int(g)
-    if f == 1:
-        print("Launch Instance with Parameters")
-    elif f == 2: 
-        print("Stop Instance with Parameters")
-    elif f == 3:
-        print("Delete Instance with Parameters")
-    elif f == 4: 
-        pass
-    elif f == 5:
-        pass
-    elif f == 6:
-        pass
-    elif f == 7:
-        pass
-    elif f == 8:
-        pass
-    elif f == 9:   
-        pass  
-    else:
-        print("Invalid Operation!")
+
+# MPS Console Logic     
+options = {
+    "1" : "Launch Instance with Parameters",
+    "2" : "Stop Instance with Parameters"
+}
+def mainConsole():
+    i = input("Enter Your Input: ")
+    print(options[i])
+
      
         
 # Invoking Multipass Check
-multipasscheck() 
+print(getpass.getuser())
+multipassCheck() 
 # Invoke Console
-mainconsole()
+mainConsole()
