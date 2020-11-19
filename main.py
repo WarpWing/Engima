@@ -1,7 +1,6 @@
 import colorama
 import time
 import os
-import system
 from colorama import Fore, Style
 from consolemenu import *
 from consolemenu.items import *
