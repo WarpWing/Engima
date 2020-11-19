@@ -15,9 +15,15 @@ def mainConsole():
     # Command Logic 
     launchMP = FunctionItem("Create New MP Instance", launchMPI)
     shellMP = FunctionItem("Shell into MP Instance",shellMPI)
+    stopMP = FunctionItem("Stop MP Instance",stopMPI)
+    deleteMP = FunctionItem("Delete MP Instance",deleteMPI)
+    purgeMP = FunctionItem("Purge deleted MP Instances",purgeMPI)
     # Menu Append Array
     menu.append_item(launchMP)
     menu.append_item(shellMP)
+    menu.append_item(stopMP)
+    menu.append_item(deleteMP)
+    menu.append_item(purgeMP)
     # Menu Show Function 
     menu.show()     
 # Launch MP Logic 
@@ -43,15 +49,13 @@ def launchMPI():
     mpfinal = input("Is this correct? y/n?: ")
     if mpfinal == "y":
         print("Creating MP Instance with the following settings")
-        time.sleep(2)
         os.system(f"multipass launch -n {mpname} -c {mpcpu} -m {mpmem} -d {mpdisk}")
         print(f"Instance {mpname} created!")
         time.sleep(3)
     else: 
         print("Going back to the main menu!") # I'll work on a fix later that allows you to either resubmit settings or go back to the main menu.
-        time.sleep(5)
+        time.sleep(3)
 # Shell MP Logic 
-
 def shellMPI():
     print("---------------------------------------------------------------------------")
     x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
@@ -61,6 +65,42 @@ def shellMPI():
     x = input(f"Please type the name of the instance you would like to shell into: ")
     os.system(f"multipass shell {x}")
     print(Fore.RED)
+# Stop MP Instance Logic 
+def stopMPI():
+    print("---------------------------------------------------------------------------")
+    x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
+    subprocess_return = x.stdout.read()
+    print(subprocess_return.decode("ascii"))
+    print("---------------------------------------------------------------------------")
+    x = input(f"Please type the name of the instance you would like to stop: ")
+    os.system(f"multipass stop {x}")
+    print(Fore.RED)
+# Delete MP Instance Logic
+def deleteMPI():
+    print("---------------------------------------------------------------------------")
+    x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
+    subprocess_return = x.stdout.read()
+    print(subprocess_return.decode("ascii"))
+    print("---------------------------------------------------------------------------")
+    x = input(f"Please type the name of the instance you would like to delete: ")
+    os.system(f"multipass stop {x} && multipass delete {x}")
+    print(Fore.RED) 
+# Purge MP Instance Logic
+def purgeMPI():
+    print("---------------------------------------------------------------------------")
+    x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
+    subprocess_return = x.stdout.read()
+    print(subprocess_return.decode("ascii"))
+    print("---------------------------------------------------------------------------")
+    x1 = input(f"This command terminates all deleted MP Instances. You cannot recover them after this process is finished. Would you like to continue? y/n?: ")
+    if x1 == "y":
+        print("Purging all MP Instances!")
+        os.system(f"multipass stop {x} && multipass delete {x} && multipass purge")
+        print("All deleted MP Instances have been purged.")
+        time.sleep(3)
+    else: 
+        print("Going back to the main menu!") # I'll work on a fix later that allows you to either resubmit settings or go back to the main menu.
+        time.sleep(3)
 # Invoking Console
 mainConsole()
 
