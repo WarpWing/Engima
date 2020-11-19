@@ -1,10 +1,10 @@
-from colorama import Fore, Style
-from consolemenu import *
-from consolemenu.items import *
 import colorama
 import time
 import os
 import system
+from colorama import Fore, Style
+from consolemenu import *
+from consolemenu.items import *
 
 print(Fore.GREEN) #Declares default color. Will add multiple colors soon!
 # GUI Logic 
