@@ -7,7 +7,7 @@ import time
 import os
 import system
 
-print(Fore.GREEN)
+print(Fore.GREEN) #Declares default color. Will add multiple colors soon!
 # GUI Logic 
 def mainConsole():
     # GUI Logic 
