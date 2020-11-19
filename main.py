@@ -1,7 +1,6 @@
 from colorama import Fore, Style
 from consolemenu import *
 from consolemenu.items import *
-import pretty_errors
 import colorama
 import time
 import os
