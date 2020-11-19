@@ -83,7 +83,7 @@ def deleteMPI():
     print(subprocess_return.decode("ascii"))
     print("---------------------------------------------------------------------------")
     x = input(f"Please type the name of the instance you would like to delete: ")
-    os.system(f"multipass stop {x} && multipass delete {x}")
+    os.system(f"multipass delete {x}")
     print(Fore.RED) 
 # Purge MP Instance Logic
 def purgeMPI():
@@ -95,7 +95,7 @@ def purgeMPI():
     x1 = input(f"This command terminates all deleted MP Instances. You cannot recover them after this process is finished. Would you like to continue? y/n?: ")
     if x1 == "y":
         print("Purging all MP Instances!")
-        os.system(f"multipass stop {x} && multipass delete {x} && multipass purge")
+        os.system(f"multipass purge")
         print("All deleted MP Instances have been purged.")
         time.sleep(3)
     else: 
