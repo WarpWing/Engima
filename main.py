@@ -1,19 +1,23 @@
 import colorama
-import time
 import os
+import subprocess
+import time
 from colorama import Fore, Style
 from consolemenu import *
 from consolemenu.items import *
 
-print(Fore.GREEN) #Declares default color. Will add multiple colors soon!
+print(Fore.RED) #Declares default color. Will add multiple colors soon!
+
 # GUI Logic 
 def mainConsole():
     # GUI Logic 
     menu = ConsoleMenu("MultipassSimplified", "A Python TUI Interface for the Multipass VM System by WarpWing")
     # Command Logic 
     launchMP = FunctionItem("Create New MP Instance", launchMPI)
+    shellMP = FunctionItem("Shell into MP Instance",shellMPI)
     # Menu Append Array
     menu.append_item(launchMP)
+    menu.append_item(shellMP)
     # Menu Show Function 
     menu.show()     
 # Launch MP Logic 
@@ -46,6 +50,17 @@ def launchMPI():
     else: 
         print("Going back to the main menu!") # I'll work on a fix later that allows you to either resubmit settings or go back to the main menu.
         time.sleep(5)
+# Shell MP Logic 
+
+def shellMPI():
+    print("---------------------------------------------------------------------------")
+    x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
+    subprocess_return = x.stdout.read()
+    print(subprocess_return.decode("ascii"))
+    print("---------------------------------------------------------------------------")
+    x = input(f"Please type the name of the instance you would like to shell into: ")
+    os.system(f"multipass shell {x}")
+    print(Fore.RED)
 # Invoking Console
 mainConsole()
 
