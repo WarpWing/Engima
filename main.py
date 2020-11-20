@@ -11,19 +11,21 @@ print(Fore.RED) #Declares default color. Will add multiple colors soon!
 # GUI Logic 
 def mainConsole():
     # GUI Logic 
-    menu = ConsoleMenu("MultipassSimplified", "A Python TUI Interface for the Multipass VM System by WarpWing")
+    menu = ConsoleMenu("MultipassSimplified v1.0", "A Python TUI Interface for the Multipass VM System by WarpWing")
     # Command Logic 
     launchMP = FunctionItem("Create New MP Instance", launchMPI)
     shellMP = FunctionItem("Shell into MP Instance",shellMPI)
     stopMP = FunctionItem("Stop MP Instance",stopMPI)
     deleteMP = FunctionItem("Delete MP Instance",deleteMPI)
     purgeMP = FunctionItem("Purge deleted MP Instances",purgeMPI)
+    recoverMP = FunctionItem("Recover deleted MP Instance",recoverMPI)
     # Menu Append Array
     menu.append_item(launchMP)
     menu.append_item(shellMP)
     menu.append_item(stopMP)
     menu.append_item(deleteMP)
     menu.append_item(purgeMP)
+    menu.append_item(recoverMP)
     # Menu Show Function 
     menu.show()     
 # Launch MP Logic 
@@ -100,13 +102,23 @@ def purgeMPI():
     print("---------------------------------------------------------------------------")
     x1 = input(f"This command terminates all deleted MP Instances. You cannot recover them after this process is finished. Would you like to continue? y/n?: ")
     if x1 == "y":
-        print("Purging all MP Instances!")
+        print("Purging all deleted MP Instances!")
         os.system(f"multipass purge")
         print("All deleted MP Instances have been purged.")
         time.sleep(2)
     else: 
         print("Going back to the main menu!") # I'll work on a fix later that allows you to either resubmit settings or go back to the main menu.
         time.sleep(2)
+
+def recoverMPI():
+    print("---------------------------------------------------------------------------")
+    x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
+    subprocess_return = x.stdout.read()
+    print(subprocess_return.decode("ascii"))
+    print("---------------------------------------------------------------------------")
+    x = input(f"Please type the name of the instance you would like to recover: ")
+    os.system(f"multipass recover {x}")
+    print(Fore.RED) 
 # Invoking Console
 mainConsole()
 
