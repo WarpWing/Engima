@@ -11,7 +11,7 @@ print(Fore.RED) #Declares default color. Will add multiple colors soon!
 # GUI Logic 
 def mainConsole():
     # GUI Logic 
-    menu = ConsoleMenu("MultipassSimplified", "A Python TUI Interface for the Multipass VM System by WarpWing")
+    menu = ConsoleMenu("MultipassSimplified v1.0", "A Python TUI Interface for the Multipass VM System by WarpWing")
     # Command Logic 
     launchMP = FunctionItem("Create New MP Instance", launchMPI)
     shellMP = FunctionItem("Shell into MP Instance",shellMPI)
