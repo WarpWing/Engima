@@ -41,6 +41,12 @@ def launchMPI():
     print("Please use the suffixes of K,M or G in declaring disk space.")
     print("The minimum storage is 512M and the default is 5G")
     mpdisk = input("Space: ")
+    if mpcpu == '':
+        mpcpu = 1  
+    if mpmem == '': 
+        mpmem = '128M'
+    if mpdisk == '':
+        mpdisk = '5G'
     print(f"To finalize the creation of this MP Instance,please verify the following settings:")
     print(f"Name: {mpname}")
     print(f"CPUs: {mpcpu}")
@@ -51,10 +57,10 @@ def launchMPI():
         print("Creating MP Instance with the following settings")
         os.system(f"multipass launch -n {mpname} -c {mpcpu} -m {mpmem} -d {mpdisk}")
         print(f"Instance {mpname} created!")
-        time.sleep(3)
+        time.sleep(2)
     else: 
         print("Going back to the main menu!") # I'll work on a fix later that allows you to either resubmit settings or go back to the main menu.
-        time.sleep(3)
+        time.sleep(2)
 # Shell MP Logic 
 def shellMPI():
     print("---------------------------------------------------------------------------")
@@ -83,7 +89,7 @@ def deleteMPI():
     print(subprocess_return.decode("ascii"))
     print("---------------------------------------------------------------------------")
     x = input(f"Please type the name of the instance you would like to delete: ")
-    os.system(f"multipass stop {x} && multipass delete {x}")
+    os.system(f"multipass delete {x}")
     print(Fore.RED) 
 # Purge MP Instance Logic
 def purgeMPI():
@@ -95,12 +101,12 @@ def purgeMPI():
     x1 = input(f"This command terminates all deleted MP Instances. You cannot recover them after this process is finished. Would you like to continue? y/n?: ")
     if x1 == "y":
         print("Purging all MP Instances!")
-        os.system(f"multipass stop {x} && multipass delete {x} && multipass purge")
+        os.system(f"multipass purge")
         print("All deleted MP Instances have been purged.")
-        time.sleep(3)
+        time.sleep(2)
     else: 
         print("Going back to the main menu!") # I'll work on a fix later that allows you to either resubmit settings or go back to the main menu.
-        time.sleep(3)
+        time.sleep(2)
 # Invoking Console
 mainConsole()
 
