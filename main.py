@@ -109,7 +109,7 @@ def purgeMPI():
     else: 
         print("Going back to the main menu!") # I'll work on a fix later that allows you to either resubmit settings or go back to the main menu.
         time.sleep(2)
-# Recovery MP Logic
+# Recovery MP Instance Logic
 def recoverMPI():
     print("---------------------------------------------------------------------------")
     x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
