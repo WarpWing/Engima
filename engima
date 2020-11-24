@@ -45,6 +45,11 @@ def launchMPI():
     print("Please use the suffixes of K,M or G in declaring disk space.")
     print("The minimum storage is 512M and the default is 5G")
     mpdisk = input("Space: ")
+    mpc = input("Would you like to include a CloudInit file? y/n?: ") 
+    if mpc == 'y':
+        mpci = input("Please provide the absolute path of the Cloudinit file: ")
+    else:
+        mpci = ''
     if mpcpu == '':
         mpcpu = 1  
     if mpmem == '': 
@@ -55,11 +60,17 @@ def launchMPI():
     print(f"Name: {mpname}")
     print(f"CPUs: {mpcpu}")
     print(f"Memory: {mpmem}")
-    print(f"Disk Space: {mpdisk}")
+    print(f"Disk Space: {mpdisk}") 
+    print(f"Cloud-Init File Path: {mpci}")
     mpfinal = input("Is this correct? y/n?: ")
     if mpfinal == "y":
         print("Creating MP Instance with the following settings")
-        os.system(f"multipass launch -n {mpname} -c {mpcpu} -m {mpmem} -d {mpdisk}")
+        os.system(f"multipass launch -n {mpname} -c {mpcpu} -m {mpmem} -d {mpdisk} ")
+        print(f"Instance {mpname} created!")
+        time.sleep(2)
+    elif mpci != '' and mpfinal == "y":
+        print("Creating MP Instance with the following settings")
+        os.system(f"multipass launch -n {mpname} -c {mpcpu} -m {mpmem} -d {mpdisk} --cloud-init {mpci}")
         print(f"Instance {mpname} created!")
         time.sleep(2)
     else: 
@@ -123,8 +134,3 @@ def recoverMPI():
     print(Fore.RED) 
 # Invoking Console
 mainConsole()
-
-
-
-
-
