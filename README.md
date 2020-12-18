@@ -17,13 +17,20 @@ Later on, I plan to include the following
 - Cloudinit Support 
 - Pip3 Package Intergration 
 - Multi Worker Registration with Kubernetes
-# Installation(Manuel)
+- Better Intergration with Windows 
+# Installation for Linux and MacOS 
 To install it, please do the following 
 ```sh
 git clone https://github.com/WarpWing/MultipassSimplified.git
 pip3 install -r requirements.txt 
 sudo chmod +x engima 
 sudo cp engima /usr/bin/engima
+```
+# Installation for Windows(Not optimized for Windows yet)
+```sh
+git clone https://github.com/WarpWing/MultipassSimplified.git
+pip3 install -r requirements.txt
+python3 engima
 ```
 # Contributing
 Hey hey I see you want to contribute! If you want to contribute code, just write a quick PR and I'll take a look at the code or if you want to contribute ideas, just make a quick issue and we can discuss it!
