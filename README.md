@@ -29,3 +29,4 @@ sudo cp engima /usr/bin/engima
 Hey hey I see you want to contribute! If you want to contribute code, just write a quick PR and I'll take a look at the code or if you want to contribute ideas, just make a quick issue and we can discuss it!
 # Credits
 [WarpWing](https://github.com/WarpWing) - The author of the README.md and the main active contributer to Engima
+[EnderBro1000](https://github.com/EnderBro1000) - A good friend of mine who contributed a bit to Engima
