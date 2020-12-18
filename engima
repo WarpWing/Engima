@@ -4,8 +4,6 @@ import colorama
 import os
 import subprocess
 import time
-import cyberbrain
-from cyberbrain import trace
 from colorama import Fore, Style
 from consolemenu import *
 from consolemenu.items import *
@@ -13,7 +11,6 @@ from consolemenu.items import *
 print(Fore.RED) #Declares default color. Will add multiple colors soon!
 
 # GUI Logic 
-@trace
 def mainConsole():
     # GUI Logic 
     menu = ConsoleMenu("MultipassSimplified v1.0", "A Python TUI Interface for the Multipass VM System by WarpWing")
