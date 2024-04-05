@@ -1,7 +1,7 @@
 # Engima: A new way to utilize Multipass
  [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) 
  
-Hello! My name is WarpWing and I'm writing this README to inform you of this CLI tool codenamed Engima! Engima is a Text User Interface tool for navigating the [Multipass VM System](https://multipass.run/) by Canonical
+Hello! My name is Ty "WarpWing" Chermsirivatana and I'm writing this README to inform you of this CLI tool codenamed Engima! Engima is a Text User Interface tool for navigating the [Multipass VM System](https://multipass.run/) by Canonical
 
 # What does it do? 
 It only does basic operations at the moment but I'll probably add more functionality soon. 
